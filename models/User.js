@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
+const thoughtSchema = require('./Thought').schema;
 
 
 // email validation regex pattern
@@ -25,7 +25,7 @@ const userSchema = new Schema(
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
     },
     thoughts: [thoughtSchema],
-    friends: [userSchema],
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User'}],
   },
   {
     toJSON: {
