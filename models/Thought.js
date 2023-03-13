@@ -30,7 +30,7 @@ const thoughtSchema = new Schema(
 
 thoughtSchema.virtual('formattedTimestamp').get(function() {
   return this.createdAt.toLocaleString();
-}); //I think this is the wrong way to go about this. Look into other ways to do it in the schema level. Maybe like email validation? 
+}); 
 
 // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 
